@@ -6,7 +6,8 @@ import tensorflow_hub as hub
 import tensorflow_text as text
 import numpy as np
 import pickle
-import uuid  
+import uuid 
+import os
 
 from config import Config
 
@@ -138,4 +139,6 @@ def mode_track():
 
 
 if __name__ == '__main__':
+    os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
+    os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
     app.run(debug=True)
